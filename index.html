@@ -31,11 +31,9 @@
     .bubble{max-width:78%;padding:10px 12px;border-radius:12px;white-space:pre-wrap;line-height:1.4}
     .u{align-self:flex-end;background:#1b2735;border:1px solid #223247}
     .b{align-self:flex-start;background:#131c28;border:1px solid #203044}
-    .chat-input{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px}
-    .chat-input textarea{resize:none;background:#0e1520;border:1px solid #223247;color:var(--text);border-radius:10px;padding:10px;height:46px}
-    .chat-input button{background:#1c2737;border:1px solid #223247;color:var(--text);border-radius:10px;padding:10px 14px}
+    .chat-input{border-top:1px solid var(--line);padding:10px}
     .quick{display:flex;flex-wrap:wrap;gap:8px}
-    .quick button{background:#0f1621;border:1px solid #223247;color:#c9d6e3;border-radius:999px;padding:6px 10px;font-size:12px}
+    .quick button{background:#0f1621;border:1px solid #223247;color:#c9d6e3;border-radius:999px;padding:6px 10px;font-size:12px;cursor:pointer}
   </style>
 </head>
 <body>
@@ -49,17 +47,19 @@
   </header>
 
   <main class="container">
+    <!-- About -->
     <section class="section">
       <h2>About</h2>
       <p>Entry-level Data Analyst with a strong academic foundation in Chemistry (IIT JAM AIR 2260, NEET UG). Skilled in Excel, SQL, and Power BI—hands-on with data cleaning, forecasting, dashboards and BI projects. Seeking roles in data analytics, BI, edtech, or research.</p>
     </section>
 
+    <!-- Skills -->
     <section class="section">
       <h2>Skills</h2>
       <div class="grid">
         <div>
           <strong>Tools:</strong>
-          <span class="pill">Excel (Pivots, Charts, Forecast)</span>
+          <span class="pill">Excel</span>
           <span class="pill">SQL (MySQL)</span>
           <span class="pill">Power BI</span>
           <span class="pill">HTML/CSS/JS</span>
@@ -76,49 +76,21 @@
       </div>
     </section>
 
+    <!-- Projects -->
     <section class="section">
       <h2>Projects</h2>
       <div class="cards">
-        <div class="card">
-          <strong>Excel Data Preparation & Automation</strong>
-          <p>Automated dataset generation with Excel (RANDBETWEEN/CHOOSE), arithmetic ops, and summary calcs.</p>
-          <a href="https://tinyurl.com/3t26vn78" target="_blank">View</a>
-        </div>
-        <div class="card">
-          <strong>NEET UG Cutoff & Forecast Analysis</strong>
-          <p>Analyzed 2020–2024 cutoffs; dashboards and simple forecast for 2025 (Excel).</p>
-          <a href="https://tinyurl.com/5n8fhy6n" target="_blank">View</a>
-        </div>
-        <div class="card">
-          <strong>Medicine Order Website</strong>
-          <p>HTML/CSS/JS + WhatsApp order flow with image preview.</p>
-          <a href="https://tinyurl.com/2vzj7f5k" target="_blank">View</a>
-        </div>
-        <div class="card">
-          <strong>Excel Data Analysis & Reporting</strong>
-          <p>VLOOKUP, ROUND, conditional formatting, multi-sheet cleaning, pivots and charts.</p>
-          <a href="https://tinyurl.com/hbesf3u7" target="_blank">Data Analysis</a> ·
-          <a href="https://tinyurl.com/4bdhbr6r" target="_blank">Pivot Tables</a>
-        </div>
-        <div class="card">
-          <strong>DBMS (SQL)</strong>
-          <p>Relational schemas; DDL/DML; constraints (MySQL).</p>
-          <a href="https://tinyurl.com/2s34wdns" target="_blank">Student DBMS</a> ·
-          <a href="https://tinyurl.com/yr9nz89d" target="_blank">Inventory</a>
-        </div>
-        <div class="card">
-          <strong>Vrinda Store Sales (Excel)</strong>
-          <p>Demographics, order status & platform analysis using slicers + pivot charts.</p>
-          <a href="https://tinyurl.com/77atzdw6" target="_blank">View</a>
-        </div>
-        <div class="card">
-          <strong>Madav Sales Dashboard (Power BI)</strong>
-          <p>Interactive dashboard; bar/line charts and slicers; Power Query cleaning.</p>
-          <a href="https://tinyurl.com/524mu2ep" target="_blank">View</a>
-        </div>
+        <div class="card"><strong>Excel Data Preparation & Automation</strong><p>Automated dataset generation with Excel formulas.</p><a href="https://tinyurl.com/3t26vn78" target="_blank">View</a></div>
+        <div class="card"><strong>NEET UG Cutoff & Forecast Analysis</strong><p>Cutoff analysis & 2025 forecast with Excel dashboards.</p><a href="https://tinyurl.com/5n8fhy6n" target="_blank">View</a></div>
+        <div class="card"><strong>Medicine Order Website</strong><p>Simple HTML/CSS/JS order flow via WhatsApp.</p><a href="https://tinyurl.com/2vzj7f5k" target="_blank">View</a></div>
+        <div class="card"><strong>Excel Data Analysis & Reporting</strong><p>Cleaning, pivots, charts, formatting.</p><a href="https://tinyurl.com/hbesf3u7" target="_blank">Data</a> · <a href="https://tinyurl.com/4bdhbr6r" target="_blank">Pivot</a></div>
+        <div class="card"><strong>DBMS (SQL)</strong><p>Relational schemas & queries.</p><a href="https://tinyurl.com/2s34wdns" target="_blank">Student</a> · <a href="https://tinyurl.com/yr9nz89d" target="_blank">Inventory</a></div>
+        <div class="card"><strong>Vrinda Store Sales (Excel)</strong><p>Pivot dashboards on demographics & orders.</p><a href="https://tinyurl.com/77atzdw6" target="_blank">View</a></div>
+        <div class="card"><strong>Madav Sales Dashboard (Power BI)</strong><p>Interactive BI dashboard with Power Query cleaning.</p><a href="https://tinyurl.com/524mu2ep" target="_blank">View</a></div>
       </div>
     </section>
 
+    <!-- Publications -->
     <section class="section">
       <h2>Publications</h2>
       <ul>
@@ -127,12 +99,13 @@
       </ul>
     </section>
 
+    <!-- Experience -->
     <section class="section">
       <h2>Experience</h2>
       <ul>
-        <li><strong>Data Analyst Intern (Virtual) — Tata Forage</strong> (Aug 2025, present) — Practical projects in visualization & analysis.</li>
-        <li><strong>Subject Matter Expert (Chemistry)</strong> — Step-by-step problem solving for global learners.</li>
-        <li><strong>CoachingSelect</strong> (Jun–Jul 2023) — Outreach, Sheets tracking, digital marketing support.</li>
+        <li><strong>Data Analyst Intern (Virtual) — Tata Forage</strong> (Aug 2025–Present) — viz & analysis projects.</li>
+        <li><strong>Subject Matter Expert (Chemistry)</strong> — Global learners Q&A, problem solving.</li>
+        <li><strong>CoachingSelect</strong> (Jun–Jul 2023) — Outreach, Sheets, marketing support.</li>
       </ul>
     </section>
   </main>
@@ -144,28 +117,23 @@
   <div class="chat-panel" id="panel">
     <div class="chat-header">
       <div class="dot"></div>
-      <div><strong>Anchit’s Recruiter Bot</strong><div style="font-size:12px;color:var(--muted)">Ask about skills, projects, papers, experience</div></div>
+      <div><strong>Anchit’s Recruiter Bot</strong><div style="font-size:12px;color:var(--muted)">Click a button below</div></div>
       <button id="close" style="margin-left:auto;background:none;border:0;color:#b9c7d6;font-size:18px;cursor:pointer">×</button>
     </div>
     <div class="chat-body" id="chat"></div>
     <div class="chat-input">
       <div class="quick" id="quick"></div>
-      <textarea id="input" placeholder="Type your question…"></textarea>
-      <button id="send">Send</button>
     </div>
   </div>
 
 <script>
   // ====== CONFIG ======
-  const BACKEND_URL = "https://anchit-portfolio-backend.onrender.com/chat"; // your live backend
+  const BACKEND_URL = "https://anchit-portfolio-backend.onrender.com/chat"; 
 
-  // ====== UI Helpers ======
   const chat = document.getElementById('chat');
   const panel = document.getElementById('panel');
   const launcher = document.getElementById('launcher');
   const closeBtn = document.getElementById('close');
-  const input = document.getElementById('input');
-  const sendBtn = document.getElementById('send');
   const quick = document.getElementById('quick');
 
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -178,7 +146,7 @@
     chat.scrollTop = chat.scrollHeight;
   }
 
-  function setLoading(is){ sendBtn.disabled = is; input.disabled = is; }
+  function setLoading(is){ /* nothing to disable now */ }
 
   function addQuickButtons(){
     const items = [
@@ -190,32 +158,42 @@
     ];
     items.forEach(it=>{
       const btn=document.createElement('button');
-      btn.textContent=it.label; btn.onclick=()=> send(it.label);
+      btn.textContent=it.label;
+      btn.onclick=()=> send(it.label);
       quick.appendChild(btn);
     });
   }
 
-  launcher.onclick = ()=>{ panel.style.display = 'flex'; if(!chat.dataset.greeted){ greet(); chat.dataset.greeted='1'; } };
+  launcher.onclick = ()=>{ 
+    panel.style.display = 'flex'; 
+    if(!chat.dataset.greeted){ greet(); chat.dataset.greeted='1'; } 
+  };
   closeBtn.onclick = ()=> panel.style.display = 'none';
 
   function greet(){
-    addBubble('bot', "Hi! I'm Anchit's recruiter-friendly bot. I can answer about his skills, projects, publications, and experience. Use the quick buttons below or ask anything specific.");
+    addBubble('bot', "Hi! I'm Anchit's recruiter-friendly bot. I can answer about his skills, projects, publications, and experience. Choose an option below 👇");
   }
 
   async function send(prefill){
-    const text = prefill || input.value.trim();
-    if(!text) return; addBubble('user', text); input.value=''; setLoading(true);
+    const text = prefill;
+    if(!text) return; 
+    addBubble('user', text); 
+    setLoading(true);
     try{
-      const res = await fetch(BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text})});
+      const res = await fetch(BACKEND_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({question:text})
+      });
       const data = await res.json();
       if(data.error) throw new Error(data.error);
       addBubble('bot', data.answer || '(no answer)');
-    }catch(e){ addBubble('bot','⚠️ '+(e.message||'Something went wrong')); }
+    }catch(e){ 
+      addBubble('bot','⚠️ '+(e.message||'Something went wrong')); 
+    }
     finally{ setLoading(false); }
   }
 
-  sendBtn.onclick = ()=> send();
-  input.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); } });
   addQuickButtons();
 </script>
 </body>
