@@ -127,7 +127,6 @@
   </div>
 
 <script>
-  // ====== CONFIG ======
   const BACKEND_URL = "https://anchit-portfolio-backend.onrender.com/chat"; 
 
   const chat = document.getElementById('chat');
@@ -135,31 +134,43 @@
   const launcher = document.getElementById('launcher');
   const closeBtn = document.getElementById('close');
   const quick = document.getElementById('quick');
-
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // clickable links in bot replies
+  function linkify(text) {
+    const urlRegex = /(https?:\/\/[^\s)]+|www\.[^\s)]+)/g;
+    return text.replace(urlRegex, (url) => {
+      const href = url.startsWith('http') ? url : 'https://' + url;
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    });
+  }
+  function formatBotMessage(text) {
+    const safe = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return linkify(safe).replace(/\n/g,'<br>');
+  }
 
   function addBubble(role, text){
     const b = document.createElement('div');
     b.className = 'bubble ' + (role === 'user' ? 'u':'b');
-    b.innerText = text;
+    if (role === 'bot') b.innerHTML = formatBotMessage(text);
+    else b.innerText = text;
     chat.appendChild(b);
     chat.scrollTop = chat.scrollHeight;
   }
 
-  function setLoading(is){ /* nothing to disable now */ }
+  const items = [
+    { key:'about',        label:'About Anchit' },
+    { key:'skills',       label:'Skills' },
+    { key:'projects',     label:'Projects' },
+    { key:'experience',   label:'Experience' },
+    { key:'publications', label:'Research Papers' },
+  ];
 
   function addQuickButtons(){
-    const items = [
-      {k:'about', label:'About Anchit'},
-      {k:'skills', label:'Skills'},
-      {k:'projects', label:'Projects'},
-      {k:'papers', label:'Research Papers'},
-      {k:'experience', label:'Experience'},
-    ];
     items.forEach(it=>{
-      const btn=document.createElement('button');
-      btn.textContent=it.label;
-      btn.onclick=()=> send(it.label);
+      const btn = document.createElement('button');
+      btn.textContent = it.label;
+      btn.onclick = ()=> send(it.key, it.label);
       quick.appendChild(btn);
     });
   }
@@ -171,27 +182,24 @@
   closeBtn.onclick = ()=> panel.style.display = 'none';
 
   function greet(){
-    addBubble('bot', "Hi! I'm Anchit's recruiter-friendly bot. I can answer about his skills, projects, publications, and experience. Choose an option below 👇");
+    addBubble('bot', "Hi! I'm Anchit's recruiter-friendly bot. Choose an option below to see quick info about his About, Skills, Projects, Experience, or Publications.");
   }
 
-  async function send(prefill){
-    const text = prefill;
-    if(!text) return; 
-    addBubble('user', text); 
-    setLoading(true);
+  async function send(key, displayText){
+    if(!key) return;
+    addBubble('user', displayText || key);
     try{
       const res = await fetch(BACKEND_URL,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({question:text})
+        body: JSON.stringify({ question: key })
       });
       const data = await res.json();
       if(data.error) throw new Error(data.error);
       addBubble('bot', data.answer || '(no answer)');
-    }catch(e){ 
-      addBubble('bot','⚠️ '+(e.message||'Something went wrong')); 
+    }catch(e){
+      addBubble('bot','⚠️ '+(e.message||'Something went wrong'));
     }
-    finally{ setLoading(false); }
   }
 
   addQuickButtons();
