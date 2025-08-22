@@ -1,65 +1,222 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Anchit Sharma — Portfolio & Chatbot</title>
-<style>
-:root{
---bg:#0b0f14; --panel:#0f1621; --card:#121b28; --text:#e7eef6; --muted:#9bb0c5; --acc:#6dd3fb; --line:#1e2a3a;
-}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial}
-a{color:var(--acc);text-decoration:none}
-header{max-width:980px;margin:0 auto;padding:28px 18px;border-bottom:1px solid var(--line)}
-header h1{margin:0 0 6px;font-size:28px}
-header p{margin:0;color:var(--muted)}
-.container{max-width:980px;margin:0 auto;padding:24px 18px;display:grid;gap:22px}
-.section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
-h2{margin:0 0 12px;font-size:18px;color:#d7e0ea}
-ul{margin:0;padding-left:18px}
-.grid{display:grid;gap:12px}
-.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
-.pill{display:inline-block;border:1px solid var(--line);padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;color:var(--muted)}
-footer{max-width:980px;margin:16px auto 60px;padding:0 18px;color:var(--muted)}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anchit Sharma — Portfolio & Chatbot</title>
+  <style>
+    :root{ --bg:#0b0f14; --panel:#0f1621; --card:#121b28; --text:#e7eef6; --muted:#9bb0c5; --acc:#6dd3fb; --line:#1e2a3a; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial}
+    a{color:var(--acc);text-decoration:none}
+    header{max-width:980px;margin:0 auto;padding:28px 18px;border-bottom:1px solid var(--line)}
+    header h1{margin:0 0 6px;font-size:28px}
+    header p{margin:0;color:var(--muted)}
+    .container{max-width:980px;margin:0 auto;padding:24px 18px;display:grid;gap:22px}
+    .section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+    h2{margin:0 0 12px;font-size:18px;color:#d7e0ea}
+    ul{margin:0;padding-left:18px}
+    .grid{display:grid;gap:12px}
+    .cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+    .pill{display:inline-block;border:1px solid var(--line);padding:6px 10px;border-radius:999px;margin:4px 6px 0 0;color:var(--muted)}
+    footer{max-width:980px;margin:16px auto 60px;padding:0 18px;color:var(--muted)}
 
-
-/* Floating Chatbot */
-.chat-launcher{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,#1a2432,#213149);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:10px 14px;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.chat-panel{position:fixed;right:18px;bottom:78px;width:360px;max-height:70vh;display:none;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45)}
-.chat-header{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
-.dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--acc),#7af0c9);box-shadow:0 0 18px rgba(109,211,251,.45)}
-.chat-body{padding:12px;height:360px;overflow:auto;display:flex;flex-direction:column;gap:10px}
-.bubble{max-width:78%;padding:10px 12px;border-radius:12px;white-space:pre-wrap;line-height:1.4}
-.u{align-self:flex-end;background:#1b2735;border:1px solid #223247}
-.b{align-self:flex-start;background:#131c28;border:1px solid #203044}
-.chat-input{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px}
-.chat-input textarea{resize:none;background:#0e1520;border:1px solid #223247;color:var(--text);border-radius:10px;padding:10px;height:46px}
-.chat-input button{background:#1c2737;border:1px solid #223247;color:var(--text);border-radius:10px;padding:10px 14px}
-.quick{display:flex;flex-wrap:wrap;gap:8px}
-.quick button{background:#0f1621;border:1px solid #223247;color:#c9d6e3;border-radius:999px;padding:6px 10px;font-size:12px}
-</style>
+    /* Floating Chatbot */
+    .chat-launcher{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,#1a2432,#213149);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:10px 14px;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+    .chat-panel{position:fixed;right:18px;bottom:78px;width:360px;max-height:70vh;display:none;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+    .chat-header{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--acc),#7af0c9);box-shadow:0 0 18px rgba(109,211,251,.45)}
+    .chat-body{padding:12px;height:360px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+    .bubble{max-width:78%;padding:10px 12px;border-radius:12px;white-space:pre-wrap;line-height:1.4}
+    .u{align-self:flex-end;background:#1b2735;border:1px solid #223247}
+    .b{align-self:flex-start;background:#131c28;border:1px solid #203044}
+    .chat-input{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px}
+    .chat-input textarea{resize:none;background:#0e1520;border:1px solid #223247;color:var(--text);border-radius:10px;padding:10px;height:46px}
+    .chat-input button{background:#1c2737;border:1px solid #223247;color:var(--text);border-radius:10px;padding:10px 14px}
+    .quick{display:flex;flex-wrap:wrap;gap:8px}
+    .quick button{background:#0f1621;border:1px solid #223247;color:#c9d6e3;border-radius:999px;padding:6px 10px;font-size:12px}
+  </style>
 </head>
 <body>
-<header>
-<h1>Anchit Sharma</h1>
-<p>Entry‑level Data Analyst · B.Sc. Chemistry (IGNOU) · Excel · SQL · Power BI · Web Deployments</p>
-<p>
-Delhi, India · <a href="mailto:electricfieldon@gmail.com">electricfieldon@gmail.com</a> ·
-<a href="https://www.linkedin.com/in/anchit-sharma-26916a342" target="_blank">LinkedIn</a>
-</p>
-</header>
+  <header>
+    <h1>Anchit Sharma</h1>
+    <p>Entry-level Data Analyst · B.Sc. Chemistry (IGNOU) · Excel · SQL · Power BI · Web Deployments</p>
+    <p>
+      Delhi, India · <a href="mailto:electricfieldon@gmail.com">electricfieldon@gmail.com</a> ·
+      <a href="https://www.linkedin.com/in/anchit-sharma-26916a342" target="_blank">LinkedIn</a>
+    </p>
+  </header>
 
+  <main class="container">
+    <section class="section">
+      <h2>About</h2>
+      <p>Entry-level Data Analyst with a strong academic foundation in Chemistry (IIT JAM AIR 2260, NEET UG). Skilled in Excel, SQL, and Power BI—hands-on with data cleaning, forecasting, dashboards and BI projects. Seeking roles in data analytics, BI, edtech, or research.</p>
+    </section>
 
-<main class="container">
-<section class="section">
-<h2>About</h2>
-<p>Entry‑level Data Analyst with a strong academic foundation in Chemistry (IIT JAM AIR 2260, NEET UG). Skilled in Excel, SQL, and Power BI—hands‑on with data cleaning, forecasting, dashboards and BI projects. Seeking roles in data analytics, BI, edtech, or research.</p>
-</section>
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div>
+          <strong>Tools:</strong>
+          <span class="pill">Excel (Pivots, Charts, Forecast)</span>
+          <span class="pill">SQL (MySQL)</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">HTML/CSS/JS</span>
+          <span class="pill">GenAI Tools</span>
+        </div>
+        <div>
+          <strong>Analysis:</strong>
+          <span class="pill">Data Cleaning</span>
+          <span class="pill">EDA</span>
+          <span class="pill">Visualization</span>
+          <span class="pill">Forecasting</span>
+          <span class="pill">BI & Reporting</span>
+        </div>
+      </div>
+    </section>
 
+    <section class="section">
+      <h2>Projects</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>Excel Data Preparation & Automation</strong>
+          <p>Automated dataset generation with Excel (RANDBETWEEN/CHOOSE), arithmetic ops, and summary calcs.</p>
+          <a href="https://tinyurl.com/3t26vn78" target="_blank">View</a>
+        </div>
+        <div class="card">
+          <strong>NEET UG Cutoff & Forecast Analysis</strong>
+          <p>Analyzed 2020–2024 cutoffs; dashboards and simple forecast for 2025 (Excel).</p>
+          <a href="https://tinyurl.com/5n8fhy6n" target="_blank">View</a>
+        </div>
+        <div class="card">
+          <strong>Medicine Order Website</strong>
+          <p>HTML/CSS/JS + WhatsApp order flow with image preview.</p>
+          <a href="https://tinyurl.com/2vzj7f5k" target="_blank">View</a>
+        </div>
+        <div class="card">
+          <strong>Excel Data Analysis & Reporting</strong>
+          <p>VLOOKUP, ROUND, conditional formatting, multi-sheet cleaning, pivots and charts.</p>
+          <a href="https://tinyurl.com/hbesf3u7" target="_blank">Data Analysis</a> ·
+          <a href="https://tinyurl.com/4bdhbr6r" target="_blank">Pivot Tables</a>
+        </div>
+        <div class="card">
+          <strong>DBMS (SQL)</strong>
+          <p>Relational schemas; DDL/DML; constraints (MySQL).</p>
+          <a href="https://tinyurl.com/2s34wdns" target="_blank">Student DBMS</a> ·
+          <a href="https://tinyurl.com/yr9nz89d" target="_blank">Inventory</a>
+        </div>
+        <div class="card">
+          <strong>Vrinda Store Sales (Excel)</strong>
+          <p>Demographics, order status & platform analysis using slicers + pivot charts.</p>
+          <a href="https://tinyurl.com/77atzdw6" target="_blank">View</a>
+        </div>
+        <div class="card">
+          <strong>Madav Sales Dashboard (Power BI)</strong>
+          <p>Interactive dashboard; bar/line charts and slicers; Power Query cleaning.</p>
+          <a href="https://tinyurl.com/524mu2ep" target="_blank">View</a>
+        </div>
+      </div>
+    </section>
 
-<section class="section">
-<h2>Skills</h2>
-<div class="grid">
+    <section class="section">
+      <h2>Publications</h2>
+      <ul>
+        <li>Pedagogical Pathway to Quantum Mechanics — <a target="_blank" href="https://doi.org/10.5281/zenodo.16420453">Zenodo</a></li>
+        <li>Resolving Indeterminate Forms in First-Order Reaction Kinetics — <a target="_blank" href="https://doi.org/10.5281/zenodo.16416837">Zenodo</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Data Analyst Intern (Virtual) — Tata Forage</strong> (Aug 2025, present) — Practical projects in visualization & analysis.</li>
+        <li><strong>Subject Matter Expert (Chemistry)</strong> — Step-by-step problem solving for global learners.</li>
+        <li><strong>CoachingSelect</strong> (Jun–Jul 2023) — Outreach, Sheets tracking, digital marketing support.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Anchit Sharma · Delhi, India</footer>
+
+  <!-- Chat widget -->
+  <button class="chat-launcher" id="launcher">💬 Chat with Anchit’s Bot</button>
+  <div class="chat-panel" id="panel">
+    <div class="chat-header">
+      <div class="dot"></div>
+      <div><strong>Anchit’s Recruiter Bot</strong><div style="font-size:12px;color:var(--muted)">Ask about skills, projects, papers, experience</div></div>
+      <button id="close" style="margin-left:auto;background:none;border:0;color:#b9c7d6;font-size:18px;cursor:pointer">×</button>
+    </div>
+    <div class="chat-body" id="chat"></div>
+    <div class="chat-input">
+      <div class="quick" id="quick"></div>
+      <textarea id="input" placeholder="Type your question…"></textarea>
+      <button id="send">Send</button>
+    </div>
+  </div>
+
+<script>
+  // ====== CONFIG ======
+  const BACKEND_URL = "https://anchit-portfolio-backend.onrender.com/chat"; // your live backend
+
+  // ====== UI Helpers ======
+  const chat = document.getElementById('chat');
+  const panel = document.getElementById('panel');
+  const launcher = document.getElementById('launcher');
+  const closeBtn = document.getElementById('close');
+  const input = document.getElementById('input');
+  const sendBtn = document.getElementById('send');
+  const quick = document.getElementById('quick');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function addBubble(role, text){
+    const b = document.createElement('div');
+    b.className = 'bubble ' + (role === 'user' ? 'u':'b');
+    b.innerText = text;
+    chat.appendChild(b);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function setLoading(is){ sendBtn.disabled = is; input.disabled = is; }
+
+  function addQuickButtons(){
+    const items = [
+      {k:'about', label:'About Anchit'},
+      {k:'skills', label:'Skills'},
+      {k:'projects', label:'Projects'},
+      {k:'papers', label:'Research Papers'},
+      {k:'experience', label:'Experience'},
+    ];
+    items.forEach(it=>{
+      const btn=document.createElement('button');
+      btn.textContent=it.label; btn.onclick=()=> send(it.label);
+      quick.appendChild(btn);
+    });
+  }
+
+  launcher.onclick = ()=>{ panel.style.display = 'flex'; if(!chat.dataset.greeted){ greet(); chat.dataset.greeted='1'; } };
+  closeBtn.onclick = ()=> panel.style.display = 'none';
+
+  function greet(){
+    addBubble('bot', "Hi! I'm Anchit's recruiter-friendly bot. I can answer about his skills, projects, publications, and experience. Use the quick buttons below or ask anything specific.");
+  }
+
+  async function send(prefill){
+    const text = prefill || input.value.trim();
+    if(!text) return; addBubble('user', text); input.value=''; setLoading(true);
+    try{
+      const res = await fetch(BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text})});
+      const data = await res.json();
+      if(data.error) throw new Error(data.error);
+      addBubble('bot', data.answer || '(no answer)');
+    }catch(e){ addBubble('bot','⚠️ '+(e.message||'Something went wrong')); }
+    finally{ setLoading(false); }
+  }
+
+  sendBtn.onclick = ()=> send();
+  input.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); } });
+  addQuickButtons();
+</script>
+</body>
 </html>
